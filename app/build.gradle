@@ -6,7 +6,6 @@ def supportVersion = "24.0.0"
 
 android {
     compileSdkVersion 24
-    buildToolsVersion toolsVersion
     defaultConfig {
         applicationId "com.demo.app.androidsdkdemo"
         minSdkVersion 14
@@ -18,7 +17,6 @@ android {
         resValue("string", "growingio_url_scheme", GROWINGIO_URL_SCHEME)
         resValue("string", "growingio_channel", "Github")
         multiDexEnabled true
-        jackOptions.enabled false
         signingConfig signingConfigs.debug
         sourceSets {
             main {
@@ -56,6 +54,7 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -101,7 +100,7 @@ dependencies {
     compile 'com.bugtags.library:bugtags-lib:latest.integration'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
+    annotationProcessor 'com.jakewharton:butterknife:7.0.1'
     testCompile 'junit:junit:4.12'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
