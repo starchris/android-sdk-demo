@@ -1,15 +1,25 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.growingio.android'
 
-def toolsVersion = '25.0.0'
 def supportVersion = "24.0.0"
 
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath "com.growingio.android:vds-gradle-plugin:$GROWINGIO_SDK_VERSION"
+    }
+}
+
 android {
-    compileSdkVersion 24
+    compileSdkVersion 27
     defaultConfig {
-        applicationId "com.demo.app.androidsdkdemo"
-        minSdkVersion 14
-        targetSdkVersion 19
+        applicationId "com.demo.app.androidsdkdemo.old"
+        minSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,6 +33,10 @@ android {
                 jniLibs.srcDirs = ['libs']
             }
         }
+    }
+    compileOptions {
+        targetCompatibility '1.8'
+        sourceCompatibility '1.8'
     }
     signingConfigs {
         debug {
@@ -94,9 +108,9 @@ dependencies {
     //    compile 'com.github.brianPlummer:tinydancer:0.0.9'
 //    compile 'org.xutils:xutils:3.3.38'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.growingio.android:vds-android-agent:' + SdkVersion
+    compile "com.growingio.android:vds-android-agent:$GROWINGIO_SDK_VERSION"
     compile 'com.github.devlight:infinitecycleviewpager:1.0.2'
-    compile 'com.android.support:multidex:1.0.1'
+//    compile 'com.android.support:multidex:1.0.1'
     compile 'com.bugtags.library:bugtags-lib:latest.integration'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'

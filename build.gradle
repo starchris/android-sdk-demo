@@ -8,12 +8,11 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
-        classpath 'com.growingio.android:vds-gradle-plugin:' + GROWINGIO_SDK_VERSION
+        classpath "com.growingio.android:vds-gradle-plugin:$GROWINGIO_SDK_VERSION"
     }
 }
 
 allprojects {
-    ext.SdkVersion = GROWINGIO_SDK_VERSION
     repositories {
         mavenLocal()
         jcenter()
